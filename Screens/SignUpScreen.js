@@ -74,113 +74,113 @@ export default function SignUpScreen() {
   };
 
   return (
-      <SafeAreaView style={styles.container}>
-        <ScrollView contentContainerStyle={styles.scrollContainer}>
-          <Image source={logo} style={styles.image} resizeMode="contain" />
-          <Text style={styles.title}>Sign Up</Text>
-          <Formik
-            initialValues={{
-              fullName: '',
-              email: '',
-              phoneNumber: '',
-              password: '',
-            }}
-            validationSchema={validationSchema}
-            onSubmit={handleSignUpPress}>
-            {({
-              handleChange,
-              handleBlur,
-              handleSubmit,
-              values,
-              errors,
-              touched,
-            }) => (
-              <View style={styles.inputView}>
-                <TextInput
-                  style={[
-                    styles.input,
-                    errors.fullName && touched.fullName && {borderColor: 'red'},
-                  ]}
-                  placeholder="Full Name"
-                  onChangeText={handleChange('fullName')}
-                  onBlur={handleBlur('fullName')}
-                  value={values.fullName}
-                  autoCorrect={false}
-                  autoCapitalize="words"
-                  placeholderTextColor="black"
-                />
-                {errors.fullName && touched.fullName && (
-                  <Text style={styles.errorText}>{errors.fullName}</Text>
-                )}
-                <TextInput
-                  style={[
-                    styles.input,
-                    errors.email && touched.email && {borderColor: 'red'},
-                  ]}
-                  placeholder="Email"
-                  onChangeText={handleChange('email')}
-                  onBlur={handleBlur('email')}
-                  value={values.email}
-                  autoCorrect={false}
-                  autoCapitalize="none"
-                  keyboardType="email-address"
-                  placeholderTextColor="black"
-                />
-                {errors.email && touched.email && (
-                  <Text style={styles.errorText}>{errors.email}</Text>
-                )}
-                <TextInput
-                  style={[
-                    styles.input,
-                    errors.phoneNumber &&
-                      touched.phoneNumber && {borderColor: 'red'},
-                  ]}
-                  placeholder="Phone Number"
-                  onChangeText={handleChange('phoneNumber')}
-                  onBlur={handleBlur('phoneNumber')}
-                  value={values.phoneNumber}
-                  autoCorrect={false}
-                  autoCapitalize="none"
-                  keyboardType="phone-pad"
-                  placeholderTextColor="black"
-                />
-                {errors.phoneNumber && touched.phoneNumber && (
-                  <Text style={styles.errorText}>{errors.phoneNumber}</Text>
-                )}
-                <TextInput
-                  style={[
-                    styles.input,
-                    errors.password && touched.password && {borderColor: 'red'},
-                  ]}
-                  placeholder="Password"
-                  secureTextEntry
-                  onChangeText={handleChange('password')}
-                  onBlur={handleBlur('password')}
-                  value={values.password}
-                  autoCorrect={false}
-                  autoCapitalize="none"
-                  placeholderTextColor="black"
-                />
-                {errors.password && touched.password && (
-                  <Text style={styles.errorText}>{errors.password}</Text>
-                )}
-                <View style={styles.buttonView}>
-                  <Pressable style={styles.button} onPress={handleSubmit}>
-                    <Text style={styles.buttonText}>SIGN UP</Text>
-                  </Pressable>
-                </View>
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <Image source={logo} style={styles.image} resizeMode="contain" />
+        <Text style={styles.title}>Sign Up</Text>
+        <Formik
+          initialValues={{
+            fullName: '',
+            email: '',
+            phoneNumber: '',
+            password: '',
+          }}
+          validationSchema={validationSchema}
+          onSubmit={handleSignUpPress}>
+          {({
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            values,
+            errors,
+            touched,
+          }) => (
+            <View style={styles.inputView}>
+              <TextInput
+                style={[
+                  styles.input,
+                  errors.fullName && touched.fullName && {borderColor: 'red'},
+                ]}
+                placeholder="Full Name"
+                onChangeText={handleChange('fullName')}
+                onBlur={handleBlur('fullName')}
+                value={values.fullName}
+                autoCorrect={false}
+                autoCapitalize="words"
+                placeholderTextColor="black"
+              />
+              {errors.fullName && touched.fullName && (
+                <Text style={styles.errorText}>{errors.fullName}</Text>
+              )}
+              <TextInput
+                style={[
+                  styles.input,
+                  errors.email && touched.email && {borderColor: 'red'},
+                ]}
+                placeholder="Email"
+                onChangeText={handleChange('email')}
+                onBlur={handleBlur('email')}
+                value={values.email}
+                autoCorrect={false}
+                autoCapitalize="none"
+                keyboardType="email-address"
+                placeholderTextColor="black"
+              />
+              {errors.email && touched.email && (
+                <Text style={styles.errorText}>{errors.email}</Text>
+              )}
+              <TextInput
+                style={[
+                  styles.input,
+                  errors.phoneNumber &&
+                    touched.phoneNumber && {borderColor: 'red'},
+                ]}
+                placeholder="Phone Number"
+                onChangeText={handleChange('phoneNumber')}
+                onBlur={handleBlur('phoneNumber')}
+                value={values.phoneNumber}
+                autoCorrect={false}
+                autoCapitalize="none"
+                keyboardType="phone-pad"
+                placeholderTextColor="black"
+              />
+              {errors.phoneNumber && touched.phoneNumber && (
+                <Text style={styles.errorText}>{errors.phoneNumber}</Text>
+              )}
+              <TextInput
+                style={[
+                  styles.input,
+                  errors.password && touched.password && {borderColor: 'red'},
+                ]}
+                placeholder="Password"
+                secureTextEntry
+                onChangeText={handleChange('password')}
+                onBlur={handleBlur('password')}
+                value={values.password}
+                autoCorrect={false}
+                autoCapitalize="none"
+                placeholderTextColor="black"
+              />
+              {errors.password && touched.password && (
+                <Text style={styles.errorText}>{errors.password}</Text>
+              )}
+              <View style={styles.buttonView}>
+                <Pressable style={styles.button} onPress={handleSubmit}>
+                  <Text style={styles.buttonText}>SIGN UP</Text>
+                </Pressable>
               </View>
-            )}
-          </Formik>
+            </View>
+          )}
+        </Formik>
 
-          <View style={styles.footerView}>
-            <Text style={styles.footerText}>Already have an account?</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-              <Text style={styles.signup}>Login</Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
-      </SafeAreaView>
+        <View style={styles.footerView}>
+          <Text style={styles.footerText}>Already have an account?</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <Text style={styles.signup}>Login</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 

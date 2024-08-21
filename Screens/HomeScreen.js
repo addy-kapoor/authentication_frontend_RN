@@ -43,25 +43,25 @@ export default function HomeScreen() {
   }, []);
 
   return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.content}>
-          {error ? <Text style={styles.errorText}>{error}</Text> : null}
-          {data ? (
-            <Text style={styles.dataText}>{JSON.stringify(data)}</Text>
-          ) : (
-            <Text>Loading...</Text>
-          )}
-          <Button
-            title="Logout"
-            onPress={() => {
-              // Clear the token from local storage on logout
-              localStorage.removeItem('authToken');
-              // Optionally navigate to login screen
-              // navigation.navigate('LoginScreen');
-            }}
-          />
-        </View>
-      </SafeAreaView>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.content}>
+        {error ? <Text style={styles.errorText}>{error}</Text> : null}
+        {data ? (
+          <Text style={styles.dataText}>{JSON.stringify(data)}</Text>
+        ) : (
+          <Text>Loading...</Text>
+        )}
+        <Button
+          title="Logout"
+          onPress={() => {
+            // Clear the token from local storage on logout
+            // localStorage.removeItem('authToken');
+            // Optionally navigate to login screen
+            // navigation.navigate('LoginScreen');
+          }}
+        />
+      </View>
+    </SafeAreaView>
   );
 }
 

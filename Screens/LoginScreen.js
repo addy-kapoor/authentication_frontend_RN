@@ -32,6 +32,7 @@ export default function LoginScreen() {
       console.log('Login successful, token:', token);
       await AsyncStorage.setItem('authToken', token);
       navigation.navigate('Home');
+      console.log('after navigation');
     } catch (error) {
       console.error(
         'Login failed:',
@@ -42,46 +43,56 @@ export default function LoginScreen() {
   };
 
   return (
-      <SafeAreaView style={styles.container}>
-        <Image source={logo} style={styles.image} resizeMode="contain" />
-        <Text style={styles.title}>Login</Text>
-        <View style={styles.inputView}>
-          <TextInput
-            style={styles.input}
-            placeholder="EMAIL OR USERNAME"
-            value={username}
-            onChangeText={setUsername}
-            autoCorrect={false}
-            autoCapitalize="none"
-            placeholderTextColor="black"
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="PASSWORD"
-            secureTextEntry
-            value={password}
-            onChangeText={setPassword}
-            autoCorrect={false}
-            autoCapitalize="none"
-            placeholderTextColor="black"
-          />
-        </View>
+    <SafeAreaView style={styles.container}>
+      <Image
+        source={logo}
+        style={styles.image}
+        resizeMode="contain"
+        testID="logo"
+      />
+      <Text style={styles.title}>Login</Text>
+      <View style={styles.inputView}>
+        <TextInput
+          style={styles.input}
+          placeholder="EMAIL OR USERNAME"
+          value={username}
+          onChangeText={setUsername}
+          autoCorrect={false}
+          autoCapitalize="none"
+          placeholderTextColor="black"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="PASSWORD"
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword}
+          autoCorrect={false}
+          autoCapitalize="none"
+          placeholderTextColor="black"
+        />
+      </View>
 
-        {error ? <Text style={styles.errorText}>{error}</Text> : null}
+      {error ? <Text style={styles.errorText}>{error}</Text> : null}
 
-        <View style={styles.buttonView}>
-          <Pressable style={styles.button} onPress={handleLoginPress}>
-            <Text style={styles.buttonText}>LOGIN</Text>
-          </Pressable>
-        </View>
+      <View style={styles.buttonView}>
+        <Pressable
+          style={styles.button}
+          onPress={handleLoginPress}
+          testID="loginButton">
+          <Text style={styles.buttonText}>LOGIN</Text>
+        </Pressable>
+      </View>
 
-        <View style={styles.footerView}>
-          <Text style={styles.footerText}>Don't Have an Account?</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
-            <Text style={styles.signup}>Sign Up</Text>
-          </TouchableOpacity>
-        </View>
-      </SafeAreaView>
+      <View style={styles.footerView}>
+        <Text style={styles.footerText}>Don't Have an Account?</Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('SignUp')}
+          testID="signUpButton">
+          <Text style={styles.signup}>Sign Up</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
 }
 

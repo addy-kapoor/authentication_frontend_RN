@@ -15,6 +15,7 @@
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/native": "^6.1.18",
     "@react-navigation/stack": "^6.4.1",
+    "@testing-library/react-native": "^12.6.0",
     "axios": "^1.7.3",
     "formik": "^2.4.6",
     "jest-transform-stub": "^2.0.0",
